@@ -31,7 +31,7 @@ library(readxl)
 
 #read the data
 
-firstdatacheck <- read_excel("M:\\Documents\\03_Experiments\\01_ValidationStudy\\DataAnalysis\\data_11122024.xlsx")
+firstdatacheck <- read_excel("data/data_11122024.xlsx")
 
 
 #change column name first and second column
