@@ -16,6 +16,8 @@ library(dplyr)
 library(ggplot2)
 library(readxl)
 
+source("functions_valistudy.R")
+
 #
 # #from https://www.geeksforgeeks.org/how-to-check-multiple-r-columns-for-a-value/
 #   # Define a custom function
@@ -320,91 +322,69 @@ nonMA_rows <- filtered_nonMA_data %>%
 
 #`Jeg har en positiv f??lelse inne meg..Nesten aldri`)
 
-STAI_Q1 <- fixing_MA(MA_rows, 72,73,74,75, STAI_Q1)
-names(STAI_Q1)[2] <- "STAI_Q1"
-
+STAI_Q1 <- fixing_MA(MA_rows, 72,73,74,75, "STAI_Q1")
 
 #Jeg f??ler meg nerv??s og urolig.. 76,77,78,79
 
-STAI_Q2 <- fixing_MA(MA_rows, 76,77,78,79, STAI_Q2)
-names(STAI_Q2)[2] <- "STAI_Q2"
+STAI_Q2 <- fixing_MA(MA_rows, 76,77,78,79, "STAI_Q2")
 
 #Jeg f??ler meg tilfreds med livet mitt..80,81,82,83
 
-STAI_Q3 <- fixing_MA(MA_rows, 80,81,82,83, STAI_Q3)
-names(STAI_Q3)[2] <- "STAI_Q3"
+STAI_Q3 <- fixing_MA(MA_rows, 80,81,82,83, "STAI_Q3")
 
 #Jeg ??nsker at jeg kunne v??re like forn??yd med livet mitt som andre ser ut til ?? v??re..84,85,86,87
 
-STAI_Q4 <- fixing_MA(MA_rows, 84,85,86,87, STAI_Q4)
-names(STAI_Q4)[2] <- "STAI_Q4"
+STAI_Q4 <- fixing_MA(MA_rows, 84,85,86,87, "STAI_Q4")
 
 #Jeg f??ler meg mislykket..88,89,90,91
 
-STAI_Q5 <- fixing_MA(MA_rows, 88,89, 90, 91, STAI_Q5)
-names(STAI_Q5)[2] <- "STAI_Q5"
+STAI_Q5 <- fixing_MA(MA_rows, 88,89, 90, 91, "STAI_Q5")
 
 
 #Jeg f??ler meg fredfull..92,93,94,95
-STAI_Q6 <- fixing_MA(MA_rows, 92,93,94,95, STAI_Q6)
-names(STAI_Q6)[2] <- "STAI_Q6"
-
+STAI_Q6 <- fixing_MA(MA_rows, 92,93,94,95, "STAI_Q6")
 
 # Jeg er en rolig person og har kontroll over f??lelse mine.96,97,98,99
-STAI_Q7 <- fixing_MA(MA_rows, 96,97,98,99, STAI_Q7)
-names(STAI_Q7)[2] <- "STAI_Q7"
+STAI_Q7 <- fixing_MA(MA_rows, 96,97,98,99, "STAI_Q7")
 
 # Jeg f??ler at vanskene hoper seg s?? mye opp at jeg ikke kan hanskes med dem.100,101,102,103
-STAI_Q8 <- fixing_MA(MA_rows, 100,101,102,103, STAI_Q8)
-names(STAI_Q8)[2] <- "STAI_Q8"
+STAI_Q8 <- fixing_MA(MA_rows, 100,101,102,103, "STAI_Q8")
 
 # Jeg bekymrer meg for mye om ting som egentlig er uviktige.104,105,106,107
-STAI_Q9 <- fixing_MA(MA_rows, 104,105,106,107, STAI_Q9)
-names(STAI_Q9)[2] <- "STAI_Q9"
+STAI_Q9 <- fixing_MA(MA_rows, 104,105,106,107, "STAI_Q9")
 
 # Jeg f??ler meg ganske tilfreds med livet mitt.108,109,110,111
-STAI_Q10 <- fixing_MA(MA_rows, 108,109,110,111, STAI_Q10)
-names(STAI_Q10)[2] <- "STAI_Q10"
+STAI_Q10 <- fixing_MA(MA_rows, 108,109,110,111, "STAI_Q10")
 
 # Jeg har tanker som gj??r meg oppr??rt.112,113,114,115
-STAI_Q11 <- fixing_MA(MA_rows, 112,113,114,115, STAI_Q11)
-names(STAI_Q11)[2] <- "STAI_Q11"
+STAI_Q11 <- fixing_MA(MA_rows, 112,113,114,115, "STAI_Q11")
 
 # Jeg mangler selvtillit.116,117,118,119
-STAI_Q12 <- fixing_MA(MA_rows, 116,117,118,119, STAI_Q12)
-names(STAI_Q12)[2] <- "STAI_Q12"
+STAI_Q12 <- fixing_MA(MA_rows, 116,117,118,119, "STAI_Q12")
 
 # Jeg f??ler meg trygg.120,121,122,123
-STAI_Q13 <- fixing_MA(MA_rows, 120,121,122,123, STAI_Q13)
-names(STAI_Q13)[2] <- "STAI_Q13"
+STAI_Q13 <- fixing_MA(MA_rows, 120,121,122,123, "STAI_Q13")
 
 # Jeg tar lett avgj??relser.124,125,126,127
-STAI_Q14 <- fixing_MA(MA_rows, 124,125,126,127, STAI_Q14)
-names(STAI_Q14)[2] <- "STAI_Q14"
+STAI_Q14 <- fixing_MA(MA_rows, 124,125,126,127, "STAI_Q14")
 
 # Jeg f??ler meg utilstrekkelig.128,129,130,131
-STAI_Q15 <- fixing_MA(MA_rows, 128,129,130,131, STAI_Q15)
-names(STAI_Q15)[2] <- "STAI_Q15"
+STAI_Q15 <- fixing_MA(MA_rows, 128,129,130,131, "STAI_Q15")
 
 # Jeg er forn??yd.132,133,134,135
-STAI_Q16 <- fixing_MA(MA_rows, 132,133,134,135, STAI_Q16)
-names(STAI_Q16)[2] <- "STAI_Q16"
+STAI_Q16 <- fixing_MA(MA_rows, 132,133,134,135, "STAI_Q16")
 
 # Noen uviktige tanker g??r gjennom hodet mitt og plager meg.136,137,138,139
-STAI_Q17 <- fixing_MA(MA_rows, 136,137,138,139, STAI_Q17)
-names(STAI_Q17)[2] <- "STAI_Q17"
+STAI_Q17 <- fixing_MA(MA_rows, 136,137,138,139, "STAI_Q17")
 
 # Jeg tar skuffelser s?? tungt at jeg ikke kan f?? dem ut av hodet.140,141,142,143
-STAI_Q18 <- fixing_MA(MA_rows, 140,141,142,143, STAI_Q18)
-names(STAI_Q18)[2] <- "STAI_Q18"
+STAI_Q18 <- fixing_MA(MA_rows, 140,141,142,143, "STAI_Q18")
 
 # Jeg er en st??dig og stabil person.144,145,146,147
-STAI_Q19 <- fixing_MA(MA_rows, 144,145,146,147, STAI_Q19)
-names(STAI_Q19)[2] <- "STAI_Q19"
+STAI_Q19 <- fixing_MA(MA_rows, 144,145,146,147, "STAI_Q19")
 
 # Jeg blir anspent og urolig av ?? tenke p?? ting som opptar meg eller som jeg driver med for tiden. 148,149,150,151
-STAI_Q20 <- fixing_MA(MA_rows, 148,149,150,151, STAI_Q20)
-names(STAI_Q20)[2] <- "STAI_Q20"
+STAI_Q20 <- fixing_MA(MA_rows, 148,149,150,151, "STAI_Q20")
 
 
 # bind the columns together

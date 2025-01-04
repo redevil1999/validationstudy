@@ -2,7 +2,7 @@
 
 # it takes df, col1, col2, col3, col4, questionname_df, questionname_col
 
-fixing_MA <- function(df, col1, col2, col3, col4, questionname_df){
+fixing_MA <- function(df, col1, col2, col3, col4, name_of_col){
   validation_df <- as.data.frame(df)
 
   STAI_nestenaldri <- validation_df %>%
@@ -33,8 +33,9 @@ fixing_MA <- function(df, col1, col2, col3, col4, questionname_df){
     mutate(
       colC = coalesce(STAI_nestenalltid$nestenalltid, STAI_b$colB))
   
-  questionname_df <- STAI_c %>%
-    select("session_id", colC) 
+  STAI_c %>%
+    select("session_id", colC) %>%
+    rename({{ name_of_col }} := colC)
 }
 
 
