@@ -388,25 +388,39 @@ STAI_Q20 <- fixing_MA(MA_rows, 148,149,150,151, "STAI_Q20")
 
 
 # bind the columns together
-STAI_questionnaire <- merge(STAI_Q1, STAI_Q2, by = "session_id")
-STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q3, by = "session_id")
-STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q4, by = "session_id")
-STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q5, by = "session_id")
-STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q6, by = "session_id")
-STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q7, by = "session_id")
-STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q8, by = "session_id")
-STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q9, by = "session_id")
-STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q10, by = "session_id")
-STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q11, by = "session_id")
-STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q12, by = "session_id")
-STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q13, by = "session_id")
-STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q14, by = "session_id")
-STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q15, by = "session_id")
-STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q16, by = "session_id")
-STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q17, by = "session_id")
-STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q18, by = "session_id")
-STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q19, by = "session_id")
-STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q20, by = "session_id")
+# STAI_questionnaire <- merge(STAI_Q1, STAI_Q2, by = "session_id")
+# STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q3, by = "session_id")
+# STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q4, by = "session_id")
+# STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q5, by = "session_id")
+# STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q6, by = "session_id")
+# STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q7, by = "session_id")
+# STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q8, by = "session_id")
+# STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q9, by = "session_id")
+# STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q10, by = "session_id")
+# STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q11, by = "session_id")
+# STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q12, by = "session_id")
+# STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q13, by = "session_id")
+# STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q14, by = "session_id")
+# STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q15, by = "session_id")
+# STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q16, by = "session_id")
+# STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q17, by = "session_id")
+# STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q18, by = "session_id")
+# STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q19, by = "session_id")
+# STAI_questionnaire <- merge(STAI_questionnaire, STAI_Q20, by = "session_id")
+
+# Edit: Slightly more automated
+# Create list of all STAI_Q items
+stais <- paste0("STAI_Q", 1:20)
+
+# Initialise the new df
+STAI_questionnaire <- right_join(STAI_Q1, STAI_Q2, by = "session_id")
+# Iterate over the list of STAI_Q items (from item 3)
+# eval(str2expression()) allows dplyr functions to treat a string like an object)
+for (elem in stais[3:20]) {
+  STAI_questionnaire <- right_join(STAI_questionnaire, 
+                                   eval(str2expression(elem)), 
+                                   by = "session_id")
+}
 
 
 MA_rows2 <- MA_rows %>% select(-c(72:171))
