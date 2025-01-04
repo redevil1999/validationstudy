@@ -32,7 +32,7 @@ source("functions_valistudy.R")
 
 
 #read the data
-
+# Edit: I changed this to a location on my own computer. 
 firstdatacheck <- read_excel("data/data_11122024.xlsx")
 
 
@@ -89,8 +89,9 @@ which(!is.na(firstdatacheck[79]))
 which(!is.na(firstdatacheck[76]) & !is.na(firstdatacheck[77]))
 which(!is.na(firstdatacheck[77]) & !is.na(firstdatacheck[78]))
 which(!is.na(firstdatacheck[78]) & !is.na(firstdatacheck[79]))
-# 15, 59, 9, 40, 54, 65
+# 9, 40, 54, 65
 
+# Edit: 15 and 59 should not be included here.
 newelems <- c(15, 59, 9, 40, 54, 65)
 MultipleAnswer_List <- c(MultipleAnswer_List, newelems)
 
