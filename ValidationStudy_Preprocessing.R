@@ -68,6 +68,12 @@ which(!is.na(firstdatacheck[73]) & !is.na(firstdatacheck[74]))
 which(!is.na(firstdatacheck[74]) & !is.na(firstdatacheck[75]))
 # 73
 
+# Edit: some people chose non-consecutive scale items
+which(!is.na(firstdatacheck[72]) & !is.na(firstdatacheck[74]))
+which(!is.na(firstdatacheck[72]) & !is.na(firstdatacheck[75]))
+# 27 65
+which(!is.na(firstdatacheck[73]) & !is.na(firstdatacheck[75]))
+
 MultipleAnswer_List <- 73
 
 
